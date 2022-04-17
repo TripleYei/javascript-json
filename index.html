@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mostrar imagenes y texto desde un JSON</title>
+	<style type="text/css">
+		img{
+			border: 5px solid green;
+		}
+		table{
+			border: 5px;
+		}
+	</style>
+</head>
+<body>
+	<p id="demo"></p>
+	<script>
+		let text = '{"foto":[' +
+		'{"firstName":"Gato","img":"gato.png" },' +
+		'{"firstName":"Foto1","img":"https://picsum.photos/200/300" },' +
+		'{"firstName":"Foto2","img":"https://picsum.photos/200/300?grayscale" }]}';
+
+		const obj = JSON.parse(text);
+
+		document.getElementById("demo").innerHTML += "<h1>"+obj.foto[0].firstName+"</h1>" ;
+		document.getElementById("demo").innerHTML += '<img src="'+obj.foto[0].img+'" />' ;
+		document.getElementById("demo").innerHTML += "<h1>"+obj.foto[1].firstName+"</h1>" ;
+		document.getElementById("demo").innerHTML += '<img src="'+obj.foto[1].img+'" />' ;
+		document.getElementById("demo").innerHTML += "<h1>"+obj.foto[2].firstName+"</h1>" ;
+		document.getElementById("demo").innerHTML += '<img src="'+obj.foto[2].img+'" />' ;
+
+	</script>
+	
+
+</body>
+</html>
